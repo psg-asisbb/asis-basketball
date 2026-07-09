@@ -548,10 +548,10 @@
                 snapshot.forEach(doc => mockData.coaches.push(doc.data()));
                 
                 // If cloud database is empty, seed initial data values
-                if (mockData.coaches.length === 0) {
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'coach_k'), { name: "Coach K", pin: "1234" });
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'coach_saunders'), { name: "Coach Saunders", pin: "4321" });
-                }
+                //if (mockData.coaches.length === 0) {
+                    //setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'coach_k'), { name: "Coach K", pin: "1234" });
+                    //setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'coach_saunders'), { name: "Coach Saunders", pin: "4321" });
+                //}
                 refreshCoachDropdowns();
             }, (err) => console.error("Error reading coaches:", err));
 
@@ -560,7 +560,7 @@
                 mockData.players = [];
                 snapshot.forEach(doc => mockData.players.push(doc.data()));
 
-                if (mockData.players.length === 0) {
+                /*if (mockData.players.length === 0) {
                     const p1 = { 
                         id: 1, 
                         name: "Marcus Jordan", 
@@ -581,7 +581,7 @@
                     };
                     setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'players', '1'), p1);
                     setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'players', '2'), p2);
-                }
+                }*/
 
                 // Update UI tags
                 const tag = document.getElementById('assigned-athlete-tag');
@@ -596,10 +596,10 @@
                 snapshot.forEach(doc => mockData.sessions.push(doc.data()));
                 mockData.sessions.sort((a,b) => new Date(b.date) - new Date(a.date));
 
-                if (mockData.sessions.length === 0) {
+                /*if (mockData.sessions.length === 0) {
                     setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'sessions', 's_2026_07_08'), { date: "2026-07-08", coach: "Coach K", focus: "Defensive transitions & off-ball fastbreaks", video: "" });
                     setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'sessions', 's_2026_07_05'), { date: "2026-07-05", coach: "Coach Saunders", focus: "Three-point spot up and perimeter screen positioning", video: "" });
-                }
+                }*/
             }, (err) => console.error("Error reading sessions:", err));
 
             // Attendance stream
