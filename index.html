@@ -32,7 +32,6 @@
         }
     </script>
     <style>
-        /* Custom scrollbars */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -104,9 +103,11 @@
         <!-- TOP BRANDING HUB -->
         <div class="text-center mb-6">
             <div class="relative inline-block mb-3">
+                <!-- Glowing Pulsing Border Ring -->
                 <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-hoopYellow via-hoopRed to-hoopBlue opacity-75 blur-md animate-pulse"></div>
-                <div class="relative bg-hoopDark border-2 border-hoopYellow rounded-full p-4 w-20 h-20 flex items-center justify-center mx-auto floating-ball shadow-2xl">
-                    <i class="fa-solid fa-basketball text-hoopYellow text-4xl"></i>
+                <!-- Dynamic Image Mask Container: Corrected to Logo Asis_3.jpg -->
+                <div class="relative bg-hoopDark border-2 border-hoopYellow rounded-full w-24 h-24 overflow-hidden flex items-center justify-center mx-auto floating-ball shadow-2xl">
+                    <img src="Logo Asis_3.jpg" alt="ASIS School Seal" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?w=150';">
                 </div>
                 <div class="absolute -bottom-1 -right-2 bg-hoopRed text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-white tracking-widest uppercase">
                     CLOUD
@@ -139,7 +140,7 @@
                 </div>
 
                 <div class="space-y-6 my-auto">
-                    <!-- Parent Gateway Link (No PIN Required) -->
+                    <!-- Parent Portal Link -->
                     <div class="relative group">
                         <div class="absolute inset-0 bg-hoopBlue rounded-2xl transform translate-y-1.5 transition-transform group-hover:translate-y-2 group-active:translate-y-0.5"></div>
                         <button onclick="navigateTo('page-parent')" class="btn-3d w-full relative bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-5 font-sports text-2xl tracking-wider uppercase border border-blue-400/30 flex items-center justify-between shadow-lg focus:outline-none">
@@ -156,7 +157,7 @@
                         </button>
                     </div>
 
-                    <!-- Coach Gateway Link (Secure / Directs to PIN Entry) -->
+                    <!-- Coach Gateway Link -->
                     <div class="relative group">
                         <div class="absolute inset-0 bg-hoopRed rounded-2xl transform translate-y-1.5 transition-transform group-hover:translate-y-2 group-active:translate-y-0.5"></div>
                         <button onclick="navigateTo('page-coach-login')" class="btn-3d w-full relative bg-gradient-to-r from-red-600 to-rose-700 text-white rounded-2xl p-5 font-sports text-2xl tracking-wider uppercase border border-red-400/30 flex items-center justify-between shadow-lg focus:outline-none">
@@ -179,7 +180,7 @@
                 </div>
             </div>
 
-            <!-- PAGE: INTERMEDIATE SECURE COACH LOGIN -->
+            <!-- PAGE: SECURE PIN GATEWAY -->
             <div id="page-coach-login" class="page-view hidden animate-hoop-bounce flex flex-col justify-between flex-grow">
                 <div class="text-center mb-4">
                     <span class="bg-red-500/20 text-hoopRed border border-hoopRed/40 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
@@ -192,7 +193,7 @@
                     <div>
                         <label class="block text-xs uppercase text-slate-400 mb-1 font-semibold tracking-wider">Select Coach Profile</label>
                         <select id="login-coach-select" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white text-sm focus:outline-none focus:border-hoopRed">
-                            <!-- Dynamically loaded from DB -->
+                            <!-- Loaded from DB -->
                         </select>
                     </div>
                     <div>
@@ -206,9 +207,6 @@
                 </div>
 
                 <div class="space-y-3 pt-4 border-t border-slate-800/80 mt-4">
-                    <button onclick="openModal('register-coach-modal')" class="w-full text-center text-xs text-hoopYellow hover:underline block font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-user-plus mr-1"></i> Register Coach Profile
-                    </button>
                     <button onclick="navigateTo('page-landing')" class="w-full py-2 bg-slate-800 text-slate-400 rounded-xl font-sports text-sm tracking-wider uppercase text-center hover:bg-slate-700 transition-colors">
                         Back to Landing
                     </button>
@@ -224,7 +222,6 @@
                     <h2 class="font-sports font-bold text-3xl mt-3 text-white tracking-wide">PARENT DASHBOARD</h2>
                 </div>
 
-                <!-- 3 Parent Actions -->
                 <div class="space-y-4 my-auto">
                     <!-- 1. View Player Progress -->
                     <div class="relative group">
@@ -250,7 +247,19 @@
                         </button>
                     </div>
 
-                    <!-- 3. Return Back -->
+                    <!-- 3. View Play Tape & Video Code Reviews -->
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-slate-800 rounded-xl transform translate-y-1 transition-transform group-hover:translate-y-1.5 group-active:translate-y-0.5"></div>
+                        <button onclick="openModal('view-video-reviews')" class="btn-3d w-full relative bg-slate-700 text-white rounded-xl py-4 px-5 font-sports text-xl tracking-wider uppercase border border-slate-600 flex items-center justify-between focus:outline-none">
+                            <span class="flex items-center gap-3">
+                                <i class="fa-solid fa-photo-film text-hoopYellow"></i>
+                                <span>Play Code Reviews (Tape)</span>
+                            </span>
+                            <span class="text-[10px] bg-hoopRed text-white font-sans font-bold px-2 py-0.5 rounded">VIDEO</span>
+                        </button>
+                    </div>
+
+                    <!-- Return Back -->
                     <div class="relative group pt-4">
                         <div class="absolute inset-0 bg-blue-900 rounded-xl transform translate-y-1 transition-transform group-hover:translate-y-1.5 group-active:translate-y-0.5"></div>
                         <button onclick="navigateTo('page-landing')" class="btn-3d w-full relative bg-hoopBlue text-white rounded-xl py-3.5 px-5 font-sports text-xl tracking-wider uppercase border border-blue-500 flex items-center justify-center gap-2 focus:outline-none">
@@ -274,8 +283,7 @@
                     <h2 class="font-sports font-bold text-3xl mt-2 text-white tracking-wide">COACH WORKSPACE</h2>
                 </div>
 
-                <!-- Roster dashboard actions -->
-                <div class="space-y-2.5 my-auto max-h-[360px] overflow-y-auto pr-1">
+                <div class="space-y-3.5 my-auto max-h-[360px] overflow-y-auto pr-1">
                     <!-- Register Coach -->
                     <div class="relative group">
                         <div class="absolute inset-0 bg-slate-800 rounded-xl transform translate-y-1 transition-transform group-hover:translate-y-1.5 group-active:translate-y-0.5"></div>
@@ -288,7 +296,7 @@
                         </button>
                     </div>
 
-                    <!-- Update Coach -->
+                    <!-- Update Coach PIN -->
                     <div class="relative group">
                         <div class="absolute inset-0 bg-slate-800 rounded-xl transform translate-y-1 transition-transform group-hover:translate-y-1.5 group-active:translate-y-0.5"></div>
                         <button onclick="openModal('update-coach')" class="btn-3d w-full relative bg-slate-700 text-white rounded-xl py-2.5 px-4 font-sports text-base tracking-wider uppercase border border-slate-600 flex items-center justify-between focus:outline-none">
@@ -336,7 +344,7 @@
                         </button>
                     </div>
 
-                    <!-- Enter Training Session (Updated for creation + editing) -->
+                    <!-- Enter / Edit Training Sessions -->
                     <div class="relative group">
                         <div class="absolute inset-0 bg-slate-800 rounded-xl transform translate-y-1 transition-transform group-hover:translate-y-1.5 group-active:translate-y-0.5"></div>
                         <button onclick="openModal('enter-training')" class="btn-3d w-full relative bg-slate-700 text-white rounded-xl py-2.5 px-4 font-sports text-base tracking-wider uppercase border border-slate-600 flex items-center justify-between focus:outline-none">
@@ -345,6 +353,18 @@
                                 <span>Enter / Edit Training Sessions</span>
                             </span>
                             <span class="text-[9px] bg-hoopBlue/20 text-hoopBlue border border-hoopBlue/30 px-1.5 py-0.5 rounded font-sans font-bold">DRILLS</span>
+                        </button>
+                    </div>
+
+                    <!-- Manage Play Tape & Code Reviews -->
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-slate-800 rounded-xl transform translate-y-1 transition-transform group-hover:translate-y-1.5 group-active:translate-y-0.5"></div>
+                        <button onclick="openModal('manage-video-reviews')" class="btn-3d w-full relative bg-slate-700 text-white rounded-xl py-2.5 px-4 font-sports text-base tracking-wider uppercase border border-slate-600 flex items-center justify-between focus:outline-none">
+                            <span class="flex items-center gap-3">
+                                <i class="fa-solid fa-photo-film text-hoopYellow"></i>
+                                <span>Video & Play Code Reviews</span>
+                            </span>
+                            <span class="text-[9px] bg-hoopYellow/20 text-hoopYellow border border-hoopYellow/30 px-1.5 py-0.5 rounded font-sans font-bold">TAGGER</span>
                         </button>
                     </div>
 
@@ -380,31 +400,33 @@
     </footer>
 
 
-    <!-- ==================== WORKSPACE PORTAL MODALS ==================== -->
+    <!-- ==================== Workspace Core Portal Dialog Frame ==================== -->
     <div id="workspace-modal" class="fixed inset-0 bg-hoopDark/95 backdrop-blur-md hidden items-center justify-center z-50 p-4 transition-all duration-300">
-        <div id="modal-card" class="bg-slate-900 border-2 border-slate-700 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[92vh] flex flex-col">
+        <div id="modal-card" class="bg-slate-900 border-2 border-slate-700 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[92vh] flex flex-col font-sans">
             <!-- Neon Header Accent Bar -->
             <div id="modal-header-accent" class="h-1.5 bg-hoopYellow shrink-0"></div>
             
-            <div class="p-6 overflow-y-auto flex-grow">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center gap-2">
-                        <span id="modal-icon-container" class="bg-slate-800 text-hoopYellow w-10 h-10 rounded-lg flex items-center justify-center text-xl border border-slate-700"></span>
-                        <div>
-                            <h3 id="modal-title" class="font-sports font-bold text-2xl text-white uppercase tracking-wide">Modal Title</h3>
-                            <p id="modal-subtitle" class="text-[11px] text-slate-400 tracking-wider uppercase">Subtitle info</p>
+            <div class="p-6 overflow-y-auto flex-grow flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2">
+                            <span id="modal-icon-container" class="bg-slate-800 text-hoopYellow w-10 h-10 rounded-lg flex items-center justify-center text-xl border border-slate-700"></span>
+                            <div>
+                                <h3 id="modal-title" class="font-sports font-bold text-2xl text-white uppercase tracking-wide">Modal Title</h3>
+                                <p id="modal-subtitle" class="text-[11px] text-slate-400 tracking-wider uppercase">Subtitle info</p>
+                            </div>
                         </div>
+                        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
                     </div>
-                    <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
-                        <i class="fa-solid fa-times"></i>
-                    </button>
+
+                    <!-- Form / Details Container -->
+                    <div id="modal-content-area" class="text-slate-300 text-sm space-y-4"></div>
                 </div>
 
-                <!-- Form / Details Container -->
-                <div id="modal-content-area" class="text-slate-300 text-sm space-y-4"></div>
-
                 <!-- Modal Action Buttons -->
-                <div class="mt-6 flex gap-3 pt-4 border-t border-slate-800">
+                <div class="mt-6 flex gap-3 pt-4 border-t border-slate-800 shrink-0">
                     <button onclick="closeModal()" class="flex-1 py-3 px-4 bg-slate-800 hover:bg-slate-700 font-sports tracking-widest text-lg rounded-xl border border-slate-600 transition-colors uppercase text-white">
                         Dismiss
                     </button>
@@ -415,7 +437,7 @@
     </div>
 
 
-    <!-- ==================== GOOGLE FIREBASE CLOUD CONNECTOR ==================== -->
+    <!-- ==================== Google Firebase Cloud Connector Logic ==================== -->
     <script type="module">
         // Import Firebase JS modules dynamically via CDN
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -426,7 +448,7 @@
         let firebaseConfig;
         let appId;
 
-        // Check if current page is operating in preview environment or external hosting (like GitHub Pages)
+        // Check if current page is operating in preview environment or external hosting
         if (typeof __firebase_config !== 'undefined' && __firebase_config) {
             firebaseConfig = JSON.parse(__firebase_config);
             appId = typeof __app_id !== 'undefined' ? __app_id : 'asis-basketball-default';
@@ -435,13 +457,13 @@
             // ACTION REQUIRED: REPLACE PLACEHOLDER STRINGS WITH YOUR REAL CONFIG
             // =========================================================================
             firebaseConfig = {
-  		apiKey: "AIzaSyBw-G4t3DuH5_2OOp8lRHTcuO-OFXCaI_k",
- 		authDomain: "asis-basketball.firebaseapp.com",
- 		projectId: "asis-basketball",
-  		storageBucket: "asis-basketball.firebasestorage.app",
-  		messagingSenderId: "832799382543",
-  		appId: "1:832799382543:web:d9ec4d440c169eff0a177a"
-	    };
+  apiKey: "AIzaSyBw-G4t3DuH5_2OOp8lRHTcuO-OFXCaI_k",
+  authDomain: "asis-basketball.firebaseapp.com",
+  projectId: "asis-basketball",
+  storageBucket: "asis-basketball.firebasestorage.app",
+  messagingSenderId: "832799382543",
+  appId: "1:832799382543:web:d9ec4d440c169eff0a177a"
+};
             appId = "asis-basketball-prod"; 
         }
 
@@ -450,24 +472,25 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // Core dynamic collections paths (RULE 1 - Strict Paths compliance)
+        // Core collections paths
         const coachesCol = () => collection(db, 'artifacts', appId, 'public', 'data', 'coaches');
         const playersCol = () => collection(db, 'artifacts', appId, 'public', 'data', 'players');
         const sessionsCol = () => collection(db, 'artifacts', appId, 'public', 'data', 'sessions');
         const attendanceCol = () => collection(db, 'artifacts', appId, 'public', 'data', 'attendance');
+        const reviewsCol = () => collection(db, 'artifacts', appId, 'public', 'data', 'reviews');
 
         // Central Local Storage (Mirror of Cloud DB)
         const mockData = {
             coaches: [],
             players: [],
             sessions: [],
-            attendance: {}
+            attendance: {},
+            reviews: [] 
         };
 
         let loggedInCoach = null;
         let currentUser = null;
 
-        // EXPLICIT DEFINITION OF MODAL CONTROL & NOTIFICATION FUNCTIONS
         function closeModal() {
             const card = document.getElementById('modal-card');
             if (card) {
@@ -497,7 +520,7 @@
             }, 3000);
         }
 
-        // Execute Auth Flow first (RULE 3 compliance)
+        // Execute Auth Flow first
         const initAuth = async () => {
             const syncInd = document.getElementById('sync-indicator');
             const syncTxt = document.getElementById('sync-text');
@@ -530,7 +553,7 @@
                 if (syncTxt) syncTxt.textContent = "Synced with Cloud";
                 if (syncInd) syncInd.className = "inline-block w-2 h-2 rounded-full bg-green-500 mr-1.5";
                 
-                // Establish Realtime Active Sync (RULE 2 compliance - no complex filters, logic done on client)
+                // Establish Realtime Active Sync
                 syncDatabaseWithCloud();
             }
         });
@@ -538,7 +561,6 @@
         // Start Auth
         initAuth();
 
-        // Realtime sync loops
         function syncDatabaseWithCloud() {
             if (!currentUser) return;
 
@@ -546,12 +568,11 @@
             onSnapshot(coachesCol(), (snapshot) => {
                 mockData.coaches = [];
                 snapshot.forEach(doc => mockData.coaches.push(doc.data()));
-                
-                // If cloud database is empty, seed initial data values
-                //if (mockData.coaches.length === 0) {
-                    //setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'coach_k'), { name: "Coach K", pin: "1234" });
-                    //setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'coach_saunders'), { name: "Coach Saunders", pin: "4321" });
-                //}
+
+                // Auto-seed default secure admin credentials if empty
+                if (mockData.coaches.length === 0) {
+                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', 'admin'), { name: "admin", pin: "1234" });
+                }
                 refreshCoachDropdowns();
             }, (err) => console.error("Error reading coaches:", err));
 
@@ -559,29 +580,6 @@
             onSnapshot(playersCol(), (snapshot) => {
                 mockData.players = [];
                 snapshot.forEach(doc => mockData.players.push(doc.data()));
-
-                /*if (mockData.players.length === 0) {
-                    const p1 = { 
-                        id: 1, 
-                        name: "Marcus Jordan", 
-                        class: "Class A - Seniors", 
-                        locality: "Shah Alam", 
-                        parentContact: "+6012-3456789", 
-                        clubMember: "Yes",
-                        progress: { date: "2026-07-01", height: "185 cm", weight: "78 kg", standHeight: "240 cm", verticalJump: "75 cm", dash15m: "2.12 s", suicide: "31.8 s", pushUp: "45 reps" }
-                    };
-                    const p2 = { 
-                        id: 2, 
-                        name: "LeBron Vance", 
-                        class: "Class B - Cadets", 
-                        locality: "Klang Valley", 
-                        parentContact: "+6019-8765432", 
-                        clubMember: "No",
-                        progress: { date: "2026-07-03", height: "193 cm", weight: "88 kg", standHeight: "250 cm", verticalJump: "82 cm", dash15m: "2.05 s", suicide: "29.9 s", pushUp: "52 reps" }
-                    };
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'players', '1'), p1);
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'players', '2'), p2);
-                }*/
 
                 // Update UI tags
                 const tag = document.getElementById('assigned-athlete-tag');
@@ -595,11 +593,6 @@
                 mockData.sessions = [];
                 snapshot.forEach(doc => mockData.sessions.push(doc.data()));
                 mockData.sessions.sort((a,b) => new Date(b.date) - new Date(a.date));
-
-                /*if (mockData.sessions.length === 0) {
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'sessions', 's_2026_07_08'), { date: "2026-07-08", coach: "Coach K", focus: "Defensive transitions & off-ball fastbreaks", video: "" });
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'sessions', 's_2026_07_05'), { date: "2026-07-05", coach: "Coach Saunders", focus: "Three-point spot up and perimeter screen positioning", video: "" });
-                }*/
             }, (err) => console.error("Error reading sessions:", err));
 
             // Attendance stream
@@ -611,12 +604,14 @@
                         mockData.attendance[data.date] = data.roster || {};
                     }
                 });
-
-                if (Object.keys(mockData.attendance).length === 0) {
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'attendance', '2026-07-08'), { date: "2026-07-08", roster: { 1: "Attend", 2: "Attend" } });
-                    setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'attendance', '2026-07-05'), { date: "2026-07-05", roster: { 1: "Attend", 2: "Not Attend" } });
-                }
             }, (err) => console.error("Error reading attendance:", err));
+
+            // Play Video Code Reviews stream
+            onSnapshot(reviewsCol(), (snapshot) => {
+                mockData.reviews = [];
+                snapshot.forEach(doc => mockData.reviews.push(doc.data()));
+                mockData.reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+            }, (err) => console.error("Error reading video reviews:", err));
         }
 
         function refreshCoachDropdowns() {
@@ -626,7 +621,6 @@
             }
         }
 
-        // Navigation Controller
         function navigateTo(pageId) {
             document.querySelectorAll('.page-view').forEach(v => {
                 v.classList.add('hidden');
@@ -640,7 +634,6 @@
             }
         }
 
-        // Credentials Validation Loop
         function verifyCoachLogin() {
             const selectedName = document.getElementById('login-coach-select').value;
             const inputPin = document.getElementById('login-coach-pin').value;
@@ -663,7 +656,7 @@
             navigateTo('page-landing');
         }
 
-        // Modular workspace manager
+        // ==================== WORKSPACE MODAL CONTROLLER ====================
         function openModal(actionType) {
             const modal = document.getElementById('workspace-modal');
             const card = document.getElementById('modal-card');
@@ -707,7 +700,6 @@
                             return;
                         }
 
-                        // Save straight to cloud database (Strict paths RULE 1 compliance)
                         const docId = name.replace(/\s+/g, '_').toLowerCase();
                         await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'coaches', docId), { name, pin });
                         alertToast(`Profile constructed for Coach ${name}!`);
@@ -721,7 +713,7 @@
                     title = "Update Coach Profile";
                     subtitle = "Modify your security PIN parameters";
 
-                    const activeCoachObj = loggedInCoach || { name: "Coach K", pin: "1234" };
+                    const activeCoachObj = loggedInCoach || { name: "admin", pin: "1234" };
 
                     htmlContent = `
                         <div class="space-y-3.5 text-left">
@@ -811,7 +803,7 @@
                             locality: loc,
                             parentContact: contact,
                             clubMember: member,
-                            progress: { date: "", height: "--", weight: "--", standHeight: "--", verticalJump: "--", dash15m: "--", suicide: "--", pushUp: "--" }
+                            progress: { date: "", height: "--", weight: "--", reachHeight: "--", jumpHeight: "--", verticalJump: "--", dash15m: "--", pass15m: "--", suicide: "--", pushUp: "--" }
                         });
 
                         alertToast(`Player ${name} registered successfully!`);
@@ -836,7 +828,7 @@
                                 </select>
                             </div>
                             <div id="dynamic-update-fields" class="space-y-3.5">
-                                <!-- Populated dynamically by loadPlayerUpdateFields() -->
+                                <!-- Populated dynamically -->
                             </div>
                         </div>
                     `;
@@ -852,7 +844,6 @@
                             player.parentContact = document.getElementById('edit-p-contact').value.trim();
                             player.clubMember = document.querySelector('input[name="edit-club-member"]:checked').value;
 
-                            // Sync back to Firestore (Strict Path compliance)
                             await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'players', String(player.id)), player);
                             alertToast(`Information updated for ${player.name}!`);
                         }
@@ -869,7 +860,7 @@
                     let pSelectHtml = mockData.players.map(p => `<option value="${p.id}">${p.name} (${p.class})</option>`).join('');
                     
                     htmlContent = `
-                        <div class="space-y-4 text-left">
+                        <div class="space-y-4 text-left font-sans">
                             <div>
                                 <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-1">Select Player</label>
                                 <select id="prog-player-select" onchange="loadPlayerStatsForm(this.value)" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white focus:outline-none">
@@ -891,9 +882,11 @@
                                 date: document.getElementById('prog-date').value,
                                 height: document.getElementById('prog-height').value.trim() || "--",
                                 weight: document.getElementById('prog-weight').value.trim() || "--",
-                                standHeight: document.getElementById('prog-stand-height').value.trim() || "--",
+                                reachHeight: document.getElementById('prog-reach-height').value.trim() || "--",
+                                jumpHeight: document.getElementById('prog-jump-height').value.trim() || "--",
                                 verticalJump: document.getElementById('prog-vert').value.trim() || "--",
                                 dash15m: document.getElementById('prog-dash').value.trim() || "--",
+                                pass15m: document.getElementById('prog-pass').value.trim() || "--",
                                 suicide: document.getElementById('prog-suicide').value.trim() || "--",
                                 pushUp: document.getElementById('prog-pushups').value.trim() || "--"
                             };
@@ -964,7 +957,6 @@
                             return;
                         }
 
-                        // Save session to Firestore (Strict NoSQL schemas automatically append the 'video' variable)
                         const docId = `s_${date.replace(/-/g, '_')}`;
                         await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'sessions', docId), { date, coach, focus, video });
                         
@@ -1028,7 +1020,7 @@
                                 </select>
                             </div>
                             <div id="parent-telemetry-profile" class="space-y-3.5">
-                                <!-- Populated dynamically by renderParentTelemetryReport -->
+                                <!-- Populated dynamically -->
                             </div>
                         </div>
                     `;
@@ -1060,6 +1052,139 @@
                     actionText = "Close Log";
                     clickAction = () => closeModal();
                     break;
+
+                case 'manage-video-reviews':
+                    headerAccent.className = 'h-1.5 bg-hoopYellow';
+                    iconClass = "fa-photo-film text-hoopYellow";
+                    title = "Match Code Reviews";
+                    subtitle = "Tag play clips with coaching notes";
+
+                    let reviewsSelectOptions = mockData.reviews.map(r => `<option value="${r.id}">${r.date} - ${r.title}</option>`).join('');
+                    
+                    htmlContent = `
+                        <div class="space-y-3.5 text-left max-h-[55vh] overflow-y-auto pr-1">
+                            <div>
+                                <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-1">Select Active Session / Game Tape</label>
+                                <select id="review-active-select" onchange="loadReviewDocForEditing(this.value)" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white focus:outline-none">
+                                    <option value="new">➕ Add New Game Tape File</option>
+                                    ${reviewsSelectOptions}
+                                </select>
+                            </div>
+                            
+                            <div id="review-meta-fields" class="space-y-3">
+                                <div>
+                                    <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-0.5">Tape / Match Title</label>
+                                    <input id="rev-title" type="text" placeholder="e.g. Wildcats friendly" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-0.5">Video File URL (YouTube/Cloud)</label>
+                                    <input id="rev-video-url" type="text" placeholder="e.g. https://www.youtube.com/watch?v=..." class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-0.5">Event Date</label>
+                                    <input id="rev-date" type="date" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white text-sm">
+                                </div>
+                            </div>
+
+                            <div class="border-t border-slate-800 pt-3">
+                                <h4 class="font-sports font-bold text-lg text-hoopYellow uppercase mb-2">Create Performance Code tag</h4>
+                                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl space-y-3">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <label class="block text-[10px] text-slate-400 uppercase font-bold">Timestamp</label>
+                                            <input id="tag-time" type="text" placeholder="01:45" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-xs text-center text-white">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] text-slate-400 uppercase font-bold">Assign Athlete</label>
+                                            <select id="tag-player" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-xs text-white">
+                                                ${mockData.players.map(p => `<option value="${p.id}">${p.name}</option>`).join('')}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <label class="block text-[10px] text-slate-400 uppercase font-bold">Play Code / Type</label>
+                                            <input id="tag-type" type="text" placeholder="e.g. Corner Screen" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-xs text-white">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] text-slate-400 uppercase font-bold">Evaluation</label>
+                                            <select id="tag-severity" class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-xs text-white">
+                                                <option value="Excellent">Excellent</option>
+                                                <option value="Good">Good</option>
+                                                <option value="Needs Work">Needs Work</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] text-slate-400 uppercase font-bold">Tactical Notes & Mechanics</label>
+                                        <textarea id="tag-note" rows="2" placeholder="Describe positioning, footwork, or biomechanics..." class="w-full bg-slate-800 border border-slate-700 rounded p-2 text-xs text-white"></textarea>
+                                    </div>
+                                    <button type="button" onclick="addReviewTagToWorkingList()" class="w-full py-1.5 bg-hoopBlue text-white rounded font-sports tracking-wide uppercase text-sm border border-blue-400/20 hover:bg-blue-600">
+                                        ➕ Append Code Tag
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-slate-800 pt-3">
+                                <h4 class="font-sports font-bold text-sm text-slate-400 uppercase mb-2">Working Code List</h4>
+                                <div id="working-tags-container" class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                                    <p class="text-[11px] text-slate-500 italic text-center py-2 uppercase">No codes tagged in current working draft.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    actionText = "Sync Game Tape Logs";
+                    clickAction = async function() {
+                        const activeId = document.getElementById('review-active-select').value;
+                        const title = document.getElementById('rev-title').value.trim();
+                        const videoUrl = document.getElementById('rev-video-url').value.trim();
+                        const date = document.getElementById('rev-date').value;
+
+                        if (!title || !videoUrl) {
+                            alertToast("Error: Title and video url link are required!");
+                            return;
+                        }
+
+                        const documentId = activeId === 'new' ? `rev_${Date.now()}` : activeId;
+                        
+                        await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'reviews', documentId), {
+                            id: documentId,
+                            title,
+                            videoUrl,
+                            date,
+                            tags: activeWorkingTagsList
+                        });
+
+                        alertToast("Match Tape Review synced and available to parents.");
+                        closeModal();
+                    };
+                    break;
+
+                case 'view-video-reviews':
+                    headerAccent.className = 'h-1.5 bg-hoopRed';
+                    iconClass = "fa-photo-film text-hoopRed";
+                    title = "Code Review Hub";
+                    subtitle = "Match clips tagged specifically for your child";
+
+                    let parentAssignedId = mockData.players[0] ? mockData.players[0].id : "1";
+
+                    htmlContent = `
+                        <div class="space-y-4 text-left max-h-[60vh] overflow-y-auto pr-1">
+                            <div>
+                                <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-1">Select Game Tape File</label>
+                                <select id="parent-rev-select" onchange="renderParentPlayReviewAnalysis(this.value, ${parentAssignedId})" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white focus:outline-none">
+                                    ${mockData.reviews.map(r => `<option value="${r.id}">${r.date} - ${r.title}</option>`).join('')}
+                                </select>
+                            </div>
+
+                            <div id="parent-review-visualizer" class="space-y-4">
+                                <!-- Generated Dynamically -->
+                            </div>
+                        </div>
+                    `;
+                    actionText = "Close Hub";
+                    clickAction = () => closeModal();
+                    break;
             }
 
             // Bind values and reveal
@@ -1086,6 +1211,14 @@
             if (actionType === 'attendance-report' && mockData.players.length > 0) {
                 renderParentAttendanceAnalysis(mockData.players[0].id);
             }
+            if (actionType === 'manage-video-reviews') {
+                activeWorkingTagsList = [];
+                loadReviewDocForEditing('new');
+            }
+            if (actionType === 'view-video-reviews' && mockData.reviews.length > 0) {
+                const pId = mockData.players[0] ? mockData.players[0].id : 1;
+                renderParentPlayReviewAnalysis(mockData.reviews[0].id, pId);
+            }
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');
@@ -1093,7 +1226,6 @@
             setTimeout(() => card.classList.replace('opacity-0', 'opacity-100'), 50);
         }
 
-        // UPDATE PLAYER FORM BUILDER
         function loadPlayerUpdateFields(playerId) {
             const player = mockData.players.find(p => p.id == playerId);
             if (!player) return;
@@ -1101,7 +1233,7 @@
             const isYesChecked = player.clubMember === 'Yes';
 
             document.getElementById('dynamic-update-fields').innerHTML = `
-                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/80 space-y-3 mt-1 text-left">
+                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/80 space-y-3 mt-1 text-left font-sans">
                     <div>
                         <label class="block text-xs uppercase text-slate-400 font-bold mb-1">Name</label>
                         <input id="edit-p-name" type="text" value="${player.name}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-sm">
@@ -1135,57 +1267,86 @@
             `;
         }
 
-        // PROGRESS FORM BUILDER
+        window.calculateVerticalJump = function() {
+            const reachInput = document.getElementById('prog-reach-height');
+            const jumpInput = document.getElementById('prog-jump-height');
+            const vertInput = document.getElementById('prog-vert');
+
+            if (!reachInput || !jumpInput || !vertInput) return;
+
+            const reach = parseFloat(reachInput.value) || 0;
+            const jump = parseFloat(jumpInput.value) || 0;
+
+            if (reach > 0 && jump > 0) {
+                const diff = jump - reach;
+                vertInput.value = diff > 0 ? diff.toFixed(1) + " cm" : "0 cm";
+            } else {
+                vertInput.value = "--";
+            }
+        };
+
         function loadPlayerStatsForm(playerId) {
             const player = mockData.players.find(p => p.id == playerId);
             if (!player) return;
             const p = player.progress || {};
 
+            const reachVal = p.reachHeight || p.standHeight || '';
+            const jumpVal = p.jumpHeight || '';
+            const vertVal = p.verticalJump || '--';
+            const passVal = p.pass15m || '';
+
             document.getElementById('dynamic-progress-fields').innerHTML = `
-                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/80 space-y-3 mt-1">
+                <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/80 space-y-3 mt-1 font-sans">
                     <div>
                         <label class="block text-xs uppercase text-slate-400 font-bold tracking-wider mb-1">Log Date</label>
                         <input id="prog-date" type="date" value="${p.date || new Date().toISOString().split('T')[0]}" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-sm">
                     </div>
-                    <div class="grid grid-cols-3 gap-2">
+                    <div class="grid grid-cols-2 gap-2">
                         <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Height</label>
+                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Height (cm)</label>
                             <input id="prog-height" type="text" value="${p.height || ''}" placeholder="e.g. 185" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
                         </div>
                         <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Weight</label>
+                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Weight (kg)</label>
                             <input id="prog-weight" type="text" value="${p.weight || ''}" placeholder="e.g. 78" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
                         </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/60">
                         <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Stand Ht</label>
-                            <input id="prog-stand-height" type="text" value="${p.standHeight || ''}" placeholder="e.g. 240" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
+                            <label class="block text-[10px] text-hoopYellow uppercase font-bold">Reach Height (cm)</label>
+                            <input id="prog-reach-height" type="number" step="0.1" value="${reachVal}" placeholder="e.g. 240" oninput="calculateVerticalJump()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] text-hoopYellow uppercase font-bold">Jump Height (cm)</label>
+                            <input id="prog-jump-height" type="number" step="0.1" value="${jumpVal}" placeholder="e.g. 315" oninput="calculateVerticalJump()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="flex items-center justify-between bg-hoopYellow/10 border border-hoopYellow/20 p-2.5 rounded-lg text-xs">
+                        <span class="text-hoopYellow uppercase font-bold tracking-wider text-[10px]">Calculated Vertical Jump</span>
+                        <input id="prog-vert" type="text" value="${vertVal}" readonly class="text-white font-black text-right bg-transparent border-none outline-none focus:ring-0 select-none cursor-not-allowed">
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
                         <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Vertical Jump</label>
-                            <input id="prog-vert" type="text" value="${p.verticalJump || ''}" placeholder="e.g. 75" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs">
+                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">15m Dash (s)</label>
+                            <input id="prog-dash" type="text" value="${p.dash15m || ''}" placeholder="e.g. 2.12" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
                         </div>
                         <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">15 Meter Dash</label>
-                            <input id="prog-dash" type="text" value="${p.dash15m || ''}" placeholder="e.g. 2.12" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs">
+                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">15m Pass (s)</label>
+                            <input id="prog-pass" type="text" value="${passVal}" placeholder="e.g. 1.85" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Suicide (s)</label>
+                            <input id="prog-suicide" type="text" value="${p.suicide || ''}" placeholder="e.g. 31.8" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-center text-xs">
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Suicide Run</label>
-                            <input id="prog-suicide" type="text" value="${p.suicide || ''}" placeholder="e.g. 31.8" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] text-slate-400 uppercase font-semibold">Push Up Count</label>
-                            <input id="prog-pushups" type="text" value="${p.pushUp || ''}" placeholder="e.g. 45" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs">
-                        </div>
+                    <div>
+                        <label class="block text-[10px] text-slate-400 uppercase font-semibold">Push Ups (Reps)</label>
+                        <input id="prog-pushups" type="text" value="${p.pushUp || ''}" placeholder="e.g. 45" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs">
                     </div>
                 </div>
             `;
         }
 
-        // TRAINING SESSIONS CREATION VS EDITING INTERACTION LOGIC
         function toggleTrainingSessionMode(mode) {
             const wrapper = document.getElementById('select-session-wrapper');
             const dateInput = document.getElementById('train-date');
@@ -1216,7 +1377,6 @@
             }
         }
 
-        // STATE-DRIVEN ATTENDANCE LOADER (COMPLETELY RESILIENT TOGGLES)
         function loadAttendanceSheetForDate(date) {
             const rosterContainer = document.getElementById('attn-roster-rows');
             if (!mockData.attendance[date]) {
@@ -1232,18 +1392,16 @@
                 const isAttend = markedState === "Attend";
 
                 return `
-                    <div class="flex items-center justify-between p-3 bg-slate-800/60 border border-slate-700 rounded-xl">
+                    <div class="flex items-center justify-between p-3 bg-slate-800/60 border border-slate-700 rounded-xl font-sans text-xs">
                         <div>
                             <span class="font-bold text-white block text-sm leading-tight">${p.name}</span>
                             <span class="text-[10px] text-slate-400 uppercase">${p.class}</span>
                         </div>
                         <div class="flex items-center gap-3 bg-slate-900/80 p-1.5 rounded-lg border border-slate-700">
-                            <!-- Attend Button -->
                             <button type="button" onclick="setPlayerAttendance('${date}', ${p.id}, 'Attend')" class="px-3 py-1.5 rounded-md text-xs font-bold transition-all select-none border ${isAttend ? 'border-green-500/40 bg-green-500/20 text-green-400' : 'border-transparent text-slate-400 hover:text-white'}">
                                 <i class="fa-solid fa-circle-check text-[10px] mr-1"></i>
                                 <span>Attend</span>
                             </button>
-                            <!-- Not Attend Button -->
                             <button type="button" onclick="setPlayerAttendance('${date}', ${p.id}, 'Not Attend')" class="px-3 py-1.5 rounded-md text-xs font-bold transition-all select-none border ${!isAttend ? 'border-red-500/40 bg-red-500/20 text-red-400' : 'border-transparent text-slate-400 hover:text-white'}">
                                 <i class="fa-solid fa-circle-xmark text-[10px] mr-1"></i>
                                 <span>Not Attend</span>
@@ -1254,48 +1412,53 @@
             }).join('');
         }
 
-        // Update attendance state dynamically
         async function setPlayerAttendance(date, playerId, status) {
             if (mockData.attendance[date]) {
                 mockData.attendance[date][playerId] = status;
                 
-                // Write immediately to Firestore cloud
                 await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'attendance', date), {
                     date,
                     roster: mockData.attendance[date]
                 });
                 
-                // Re-render sub container dynamically
                 loadAttendanceSheetForDate(date);
             }
         }
 
-        // PARENT STATS PANEL RENDERER
         function renderParentTelemetryReport(playerId) {
             const player = mockData.players.find(p => p.id == playerId);
             if (!player) return;
             const p = player.progress || {};
 
+            const reachVal = p.reachHeight || p.standHeight || '--';
+            const jumpVal = p.jumpHeight || '--';
+            const vertVal = p.verticalJump || '--';
+            const passVal = p.pass15m || '--';
+
             document.getElementById('parent-telemetry-profile').innerHTML = `
-                <div class="bg-slate-800/50 border border-slate-700/80 p-4 rounded-xl space-y-4">
+                <div class="bg-slate-800/50 border border-slate-700/80 p-4 rounded-xl space-y-4 font-sans text-xs">
                     <div class="flex items-center justify-between border-b border-slate-700/50 pb-2.5">
                         <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Report Log Date</span>
                         <span class="text-xs bg-hoopYellow/20 text-hoopYellow border border-hoopYellow/30 px-3 py-0.5 rounded font-black">${p.date || 'NOT SET YET'}</span>
                     </div>
 
                     <!-- Dimension Grid -->
-                    <div class="grid grid-cols-3 gap-2 text-center">
-                        <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-lg">
-                            <span class="block text-slate-500 text-[9px] uppercase font-bold tracking-wider">Height</span>
-                            <span class="block text-white font-black text-sm mt-0.5">${p.height || '--'}</span>
+                    <div class="grid grid-cols-4 gap-1.5 text-center">
+                        <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                            <span class="block text-slate-500 text-[8px] uppercase font-bold tracking-wider">Height</span>
+                            <span class="block text-white font-black text-xs mt-0.5">${p.height || '--'}</span>
                         </div>
-                        <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-lg">
-                            <span class="block text-slate-500 text-[9px] uppercase font-bold tracking-wider">Weight</span>
-                            <span class="block text-white font-black text-sm mt-0.5">${p.weight || '--'}</span>
+                        <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                            <span class="block text-slate-500 text-[8px] uppercase font-bold tracking-wider">Weight</span>
+                            <span class="block text-white font-black text-xs mt-0.5">${p.weight || '--'}</span>
                         </div>
-                        <div class="bg-slate-900 border border-slate-800 p-2.5 rounded-lg">
-                            <span class="block text-slate-500 text-[9px] uppercase font-bold tracking-wider">Stand Ht</span>
-                            <span class="block text-white font-black text-sm mt-0.5">${p.standHeight || '--'}</span>
+                        <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                            <span class="block text-slate-500 text-[8px] uppercase font-bold tracking-wider">Reach Ht</span>
+                            <span class="block text-white font-black text-xs mt-0.5">${reachVal}</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                            <span class="block text-slate-500 text-[8px] uppercase font-bold tracking-wider">Jump Ht</span>
+                            <span class="block text-white font-black text-xs mt-0.5">${jumpVal}</span>
                         </div>
                     </div>
 
@@ -1303,15 +1466,21 @@
                     <div class="space-y-2 pt-2">
                         <div class="flex justify-between items-center bg-slate-900/60 p-3 rounded-lg border border-slate-800">
                             <span class="flex items-center gap-2 text-xs font-semibold text-slate-300">
-                                <i class="fa-solid fa-arrow-trend-up text-hoopYellow"></i> Vertical Jump
+                                <i class="fa-solid fa-arrow-trend-up text-hoopYellow"></i> Calculated Vertical Jump
                             </span>
-                            <span class="text-white font-bold text-sm bg-slate-800 px-3 py-1 rounded">${p.verticalJump || '--'}</span>
+                            <span class="text-hoopYellow font-bold text-sm bg-slate-800 px-3 py-1 rounded">${vertVal}</span>
                         </div>
                         <div class="flex justify-between items-center bg-slate-900/60 p-3 rounded-lg border border-slate-800">
                             <span class="flex items-center gap-2 text-xs font-semibold text-slate-300">
                                 <i class="fa-solid fa-stopwatch text-hoopBlue"></i> 15 Meter Dash
                             </span>
                             <span class="text-white font-bold text-sm bg-slate-800 px-3 py-1 rounded">${p.dash15m || '--'}</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                            <span class="flex items-center gap-2 text-xs font-semibold text-slate-300">
+                                <i class="fa-solid fa-circle-arrow-right text-hoopYellow"></i> 15 Meter Pass
+                            </span>
+                            <span class="text-white font-bold text-sm bg-slate-800 px-3 py-1 rounded">${passVal}</span>
                         </div>
                         <div class="flex justify-between items-center bg-slate-900/60 p-3 rounded-lg border border-slate-800">
                             <span class="flex items-center gap-2 text-xs font-semibold text-slate-300">
@@ -1338,7 +1507,6 @@
             `;
         }
 
-        // PARENT ATTENDANCE CALCULATIONS
         function renderParentAttendanceAnalysis(playerId) {
             const player = mockData.players.find(p => p.id == playerId);
             if (!player) return;
@@ -1366,7 +1534,7 @@
                     ` : '';
 
                     return `
-                        <div class="flex items-center justify-between p-3 bg-slate-900/60 border border-slate-800 rounded-xl text-xs">
+                        <div class="flex items-center justify-between p-3 bg-slate-900/60 border border-slate-800 rounded-xl text-xs font-sans">
                             <div class="flex-grow pr-4">
                                 <span class="font-bold text-white block">${dateKey}</span>
                                 <span class="text-[10px] text-slate-400 block break-words mt-0.5 max-w-[200px]">${sessionInfo.focus}</span>
@@ -1384,7 +1552,7 @@
             const percent = loggedTotal > 0 ? ((presentCount / loggedTotal) * 100).toFixed(1) : "100.0";
 
             document.getElementById('parent-attn-analysis-container').innerHTML = `
-                <div class="bg-slate-800/40 border border-slate-700/80 p-4 rounded-xl space-y-4">
+                <div class="bg-slate-800/40 border border-slate-700/80 p-4 rounded-xl space-y-4 font-sans text-xs">
                     <div class="flex justify-between items-center bg-slate-900 border border-slate-800 p-4 rounded-xl">
                         <div>
                             <span class="text-3xl font-black tracking-tight text-hoopYellow">${percent}%</span>
@@ -1406,7 +1574,163 @@
             `;
         }
 
-        // EXPLICIT ES MODULE WINDOW BINDINGS (Essential for browser inline elements calling module functions)
+        // ==================== Video Code Tagger & Tapes Implementation ====================
+        let activeWorkingTagsList = [];
+
+        function loadReviewDocForEditing(reviewId) {
+            if (reviewId === 'new') {
+                document.getElementById('rev-title').value = "";
+                document.getElementById('rev-video-url').value = "";
+                document.getElementById('rev-date').value = new Date().toISOString().split('T')[0];
+                activeWorkingTagsList = [];
+                renderWorkingTagsInUI();
+            } else {
+                const rev = mockData.reviews.find(r => r.id === reviewId);
+                if (rev) {
+                    document.getElementById('rev-title').value = rev.title || "";
+                    document.getElementById('rev-video-url').value = rev.videoUrl || "";
+                    document.getElementById('rev-date').value = rev.date || "";
+                    activeWorkingTagsList = rev.tags || [];
+                    renderWorkingTagsInUI();
+                }
+            }
+        }
+
+        function addReviewTagToWorkingList() {
+            const timestamp = document.getElementById('tag-time').value.trim();
+            const player = document.getElementById('tag-player').value;
+            const type = document.getElementById('tag-type').value.trim();
+            const note = document.getElementById('tag-note').value.trim();
+            const severity = document.getElementById('tag-severity').value;
+
+            if (!timestamp || !type || !note) {
+                alertToast("Error: Complete timestamp, play type, and feedback note!");
+                return;
+            }
+
+            activeWorkingTagsList.push({
+                timestamp,
+                player,
+                type,
+                note,
+                severity
+            });
+
+            // Clear tag fields
+            document.getElementById('tag-time').value = "";
+            document.getElementById('tag-type').value = "";
+            document.getElementById('tag-note').value = "";
+            
+            renderWorkingTagsInUI();
+            alertToast("Append Success! Code recorded in working memory draft.");
+        }
+
+        function removeTagFromWorkingList(index) {
+            activeWorkingTagsList.splice(index, 1);
+            renderWorkingTagsInUI();
+        }
+
+        function renderWorkingTagsInUI() {
+            const container = document.getElementById('working-tags-container');
+            if (activeWorkingTagsList.length === 0) {
+                container.innerHTML = `<p class="text-[11px] text-slate-500 italic text-center py-2 uppercase">No codes tagged in current working draft.</p>`;
+                return;
+            }
+
+            container.innerHTML = activeWorkingTagsList.map((t, idx) => {
+                const targetPlayer = mockData.players.find(p => p.id == t.player) || { name: "Athlete" };
+                const colorMap = t.severity === 'Excellent' ? 'text-green-400' : (t.severity === 'Good' ? 'text-hoopYellow' : 'text-hoopRed');
+                return `
+                    <div class="flex items-center justify-between p-2 bg-slate-800 border border-slate-700 rounded text-xs font-sans">
+                        <div>
+                            <span class="font-bold text-white">[${t.timestamp}]</span>
+                            <span class="${colorMap} font-semibold font-sans ml-1 text-[10px] uppercase">${t.severity}</span>
+                            <span class="text-slate-400 block text-[10px] font-medium leading-normal">${targetPlayer.name} - ${t.type}</span>
+                        </div>
+                        <button type="button" onclick="removeTagFromWorkingList(${idx})" class="text-slate-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderParentPlayReviewAnalysis(reviewId, playerId) {
+            const container = document.getElementById('parent-review-visualizer');
+            const review = mockData.reviews.find(r => r.id === reviewId);
+
+            if (!review) {
+                container.innerHTML = `<p class="text-slate-500 text-center italic py-4">No analysis tags associated with this event.</p>`;
+                return;
+            }
+
+            // Extract tags belonging only to selected parent's child
+            const myTags = (review.tags || []).filter(t => t.player == playerId);
+
+            // Clean & safely format YouTube links for direct iframe preview
+            let videoEmbedUrl = "";
+            try {
+                if (review.videoUrl.includes("youtube.com/watch?v=")) {
+                    const videoId = review.videoUrl.split("v=")[1].split("&")[0];
+                    videoEmbedUrl = `https://www.youtube.com/embed/${videoId}`;
+                } else if (review.videoUrl.includes("youtu.be/")) {
+                    const videoId = review.videoUrl.split("youtu.be/")[1].split("?")[0];
+                    videoEmbedUrl = `https://www.youtube.com/embed/${videoId}`;
+                }
+            } catch(e) {
+                videoEmbedUrl = "";
+            }
+
+            const videoSection = videoEmbedUrl ? `
+                <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black">
+                    <iframe class="absolute inset-0 w-full h-full" src="${videoEmbedUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            ` : `
+                <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-center text-xs space-y-2 font-sans">
+                    <i class="fa-solid fa-circle-exclamation text-hoopYellow text-xl"></i>
+                    <p class="text-slate-400">External cloud tape link attached by coach:</p>
+                    <a href="${review.videoUrl}" target="_blank" class="text-hoopYellow underline font-bold block">${review.videoUrl}</a>
+                </div>
+            `;
+
+            let tagsListHtml = myTags.map(t => {
+                let badgeColor = "bg-green-500/10 text-green-400 border-green-500/20";
+                if (t.severity === "Good") badgeColor = "bg-yellow-500/10 text-hoopYellow border-yellow-500/20";
+                if (t.severity === "Needs Work") badgeColor = "bg-red-500/10 text-hoopRed border-red-500/20";
+
+                return `
+                    <div class="bg-slate-900 border border-slate-800 p-3.5 rounded-xl space-y-2 font-sans text-xs">
+                        <div class="flex items-center justify-between">
+                            <span class="font-sports font-bold text-base text-white flex items-center gap-1.5">
+                                <i class="fa-solid fa-stopwatch text-slate-500 text-xs"></i> Time: ${t.timestamp}
+                            </span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border ${badgeColor}">
+                                ${t.severity}
+                            </span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest font-black block">Play Code Tag</span>
+                            <span class="text-white font-semibold text-sm">${t.type}</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/40 p-2.5 rounded border border-slate-800/80 italic">${t.note}</p>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = `
+                <div class="space-y-4 font-sans">
+                    ${videoSection}
+                    <div class="space-y-2.5">
+                        <h4 class="font-sports font-bold text-lg text-white uppercase tracking-wide flex items-center gap-1.5 border-b border-slate-800 pb-1.5">
+                            <i class="fa-solid fa-tags text-hoopYellow"></i> Tagged Clip Audits
+                        </h4>
+                        ${tagsListHtml || `<p class="text-xs text-slate-500 italic text-center py-6">Your child has no play codes tagged in this game file yet.</p>`}
+                    </div>
+                </div>
+            `;
+        }
+
+        // EXPLICIT ES MODULE WINDOW BINDINGS
         window.navigateTo = navigateTo;
         window.verifyCoachLogin = verifyCoachLogin;
         window.logoutCoach = logoutCoach;
@@ -1421,6 +1745,10 @@
         window.renderParentAttendanceAnalysis = renderParentAttendanceAnalysis;
         window.toggleTrainingSessionMode = toggleTrainingSessionMode;
         window.loadExistingSessionData = loadExistingSessionData;
+        window.loadReviewDocForEditing = loadReviewDocForEditing;
+        window.addReviewTagToWorkingList = addReviewTagToWorkingList;
+        window.removeTagFromWorkingList = removeTagFromWorkingList;
+        window.renderParentPlayReviewAnalysis = renderParentPlayReviewAnalysis;
     </script>
 </body>
 </html>
